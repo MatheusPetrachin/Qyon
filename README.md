@@ -33,7 +33,7 @@ Após executar o projeto `QyonAdventureWorks.Api`, certificar que ele está roda
 O `QyonAdventureWorks` é um sistema de controle de competições de corrida. Ele armazena o registro de competidores e o histórico de corridas (em cada pista) que cada competidor participou.
 Abaixo, você pode visualizar o MER das tabelas para o banco de dados.
 
-![](MER.png)
+![](https://dev-qyon-pictures.s3.sa-east-1.amazonaws.com/MER.png)
 
 Abaixo temos os requisitos funcionais solicitados pela equipe de négócio:
 
