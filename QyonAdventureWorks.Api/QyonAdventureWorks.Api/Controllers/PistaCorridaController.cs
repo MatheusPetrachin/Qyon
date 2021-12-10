@@ -20,18 +20,18 @@ namespace QyonAdventureWorks.Api.Controllers
             this.business = _business;
         }
 
-        [HttpGet("{Id}")]
-        public async Task<ActionResult<PistaCorrida>> Get(int Id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PistaCorrida>> Get(int id)
         {
             try
             {
-                var user = await business.Get(Id);
-                if (user == null)
+                var pista = business.Get(id);
+                if (pista == null)
                 {
                     ModelState.AddModelError("Error", "Não encontramos a Pista...");
                     return BadRequest(ModelState);
                 }
-                return user;
+                return pista;
             }
             catch (System.Exception ex)
             {
@@ -39,18 +39,18 @@ namespace QyonAdventureWorks.Api.Controllers
             }
         }
 
-        [HttpGet("FilterName/{Nome}")]
-        public async Task<ActionResult<List<Competidor>>> Get(string Nome)
+        [HttpGet("FilterDescription/{description}")]
+        public async Task<ActionResult<List<PistaCorrida>>> Get(string description)
         {
             try
             {
-                var user = await business.Get(Nome);
-                if (user == null)
+                var pistas = await business.Get(description);
+                if (pistas == null)
                 {
-                    ModelState.AddModelError("Error", "Não encontramos o competidor...");
+                    ModelState.AddModelError("Error", "Não encontramos nenhuma pista com essa Descrição...");
                     return BadRequest(ModelState);
                 }
-                return user;
+                return pistas;
             }
             catch (System.Exception ex)
             {
