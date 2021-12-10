@@ -32,22 +32,27 @@ namespace QyonAdventureWorks.Api.Business
                 .ToListAsync();
         }
 
-        public async void Post(PistaCorrida pistaCorrida)
+        public void Post(PistaCorrida pistaCorrida)
         {
+            var PistaCorrida = new PistaCorrida()
+            {
+                Descrição = pistaCorrida.Descrição
+            };
+
             context.PistaCorridas.Add(pistaCorrida);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
-        public async void Put(PistaCorrida pistaCorrida)
+        public void Put(PistaCorrida pistaCorrida)
         {
             context.PistaCorridas.Update(pistaCorrida);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
-        public async void Delete(PistaCorrida pistaCorrida)
+        public void Delete(PistaCorrida pistaCorrida)
         {
-            context.PistaCorridas.Update(pistaCorrida);
-            await context.SaveChangesAsync();
+            context.PistaCorridas.Remove(pistaCorrida);
+            context.SaveChanges();
         }
 
         public void Delete(int pistaCorridaId)

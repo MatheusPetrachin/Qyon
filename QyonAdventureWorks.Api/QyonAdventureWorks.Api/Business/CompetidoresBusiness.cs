@@ -32,22 +32,31 @@ namespace QyonAdventureWorks.Api.Business
                 .ToListAsync();
         }
 
-        public async void Post(Competidor competidor)
+        public void Post(Competidor competidor)
         {
-            context.Competidores.Add(competidor);
-            await context.SaveChangesAsync();            
+            var compet = new Competidor()
+            {
+                Nome = competidor.Nome,
+                Sexo = competidor.Sexo,
+                TemperaturaMediCorpo = competidor.TemperaturaMediCorpo,
+                Peso = competidor.Peso,
+                Altura = competidor.Altura
+            };
+
+            context.Competidores.Add(compet);
+            context.SaveChanges();            
         }
 
-        public async void Put(Competidor competidor)
+        public void Put(Competidor competidor)
         {
             context.Competidores.Update(competidor);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
 
-        public async void Delete(Competidor competidor)
+        public void Delete(Competidor competidor)
         {
-            context.Competidores.Update(competidor);
-            await context.SaveChangesAsync();
+            context.Competidores.Remove(competidor);
+            context.SaveChanges();
         }
 
         public void Delete(int competidorId)
