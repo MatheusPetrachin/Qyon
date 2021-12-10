@@ -16,6 +16,64 @@ namespace QyonAdventureWorks.Api.Business
             this.context = context;
         }
 
+        public async Task<List<Competidor>> CompetidoresSemCorrida()
+        {
+            List<Competidor> listCompetidor = new List<Competidor>();
+
+            var historico = context
+                .HistoricoCorridas
+                .Select(p => p.CompetidorId)
+                .ToList();
+
+            var competidores = context
+                .Competidores
+                .ToList();
+
+            foreach (var comp in competidores)
+            {
+                if (!historico.Contains(comp.Id))
+                {
+                    listCompetidor.Add(comp);
+                }
+            }
+
+            return listCompetidor;
+        }
+
+        public async Task<List<CompetidorTempoMedio>> TempoMedioCompetidores()
+        {
+            List<CompetidorTempoMedio> competidorTempoMedioList = new List<CompetidorTempoMedio>();
+
+            var historico = context
+                .HistoricoCorridas
+                .Select(p => new { p.CompetidorId, p.TempoGasto})
+                .ToList();
+
+            var competidores = context.Competidores.ToList();
+
+            foreach (var comp in competidores)
+            {
+                var listTempo = historico.Where(p => p.CompetidorId == comp.Id).Select(p => p.TempoGasto).ToList();
+                var media = 0M;
+                foreach (var item in listTempo)
+                {
+                    media += item;
+                }
+                media = media / listTempo.Count();
+
+                var competidorTempoMedio = new CompetidorTempoMedio()
+                {
+                    Id = comp.Id,
+                    Nome = comp.Nome,
+                    TempoMedio = media
+                };
+
+                competidorTempoMedioList.Add(competidorTempoMedio);
+            }
+
+            return competidorTempoMedioList;
+        }
+
         public Competidor Get(int Id)
         {
             return context

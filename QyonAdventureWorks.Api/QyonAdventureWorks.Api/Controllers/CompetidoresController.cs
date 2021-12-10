@@ -20,6 +20,44 @@ namespace QyonAdventureWorks.Api.Controllers
             this.business = _business;
         }
 
+        [HttpGet("CompetidoresSemCorrida")]
+        public async Task<ActionResult<List<Competidor>>> GetCompetidoresSemCorrida()
+        {
+            try
+            {
+                var list = await business.CompetidoresSemCorrida();
+                if (list == null)
+                {
+                    ModelState.AddModelError("Error", "Não encontramos nenhum competidor sem competir...");
+                    return BadRequest(ModelState);
+                }
+                return list;
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpGet("TempoMedioCompetidores")]
+        public async Task<ActionResult<List<CompetidorTempoMedio>>> GetTempoMedioCompetidores()
+        {
+            try
+            {
+                var list = await business.TempoMedioCompetidores();
+                if (list == null)
+                {
+                    ModelState.AddModelError("Error", "Não encontramos nenhum competidor...");
+                    return BadRequest(ModelState);
+                }
+                return list;
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
         [HttpGet("{Id}")]
         public async Task<ActionResult<Competidor>> Get(int Id)
         {

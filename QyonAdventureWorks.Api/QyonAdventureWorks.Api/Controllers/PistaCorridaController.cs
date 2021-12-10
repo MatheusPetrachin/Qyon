@@ -20,6 +20,25 @@ namespace QyonAdventureWorks.Api.Controllers
             this.business = _business;
         }
 
+        [HttpGet]
+        public async Task<ActionResult<List<PistaCorrida>>> Get()
+        {
+            try
+            {
+                var pistas = await business.PistasUtilizadas();
+                if (pistas == null)
+                {
+                    ModelState.AddModelError("Error", "Não encontramos nenhuma pista utilizada...");
+                    return BadRequest(ModelState);
+                }
+                return pistas;
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<PistaCorrida>> Get(int id)
         {

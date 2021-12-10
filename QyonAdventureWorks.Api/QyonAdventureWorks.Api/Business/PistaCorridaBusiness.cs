@@ -16,6 +16,31 @@ namespace QyonAdventureWorks.Api.Business
             this.context = context;
         }
 
+
+        public async Task<List<PistaCorrida>> PistasUtilizadas()
+        {
+            List<PistaCorrida> listPistas = new List<PistaCorrida>();
+
+            var historico = context
+                .HistoricoCorridas
+                .Select(p => p.PistaCorridaId)
+                .ToList();
+
+            var pistas = context
+                .PistaCorridas
+                .ToList();
+
+            foreach (var pist in pistas)
+            {
+                if (historico.Contains(pist.Id))
+                {
+                    listPistas.Add(pist);
+                }
+            }  
+
+            return listPistas;
+        }
+
         public PistaCorrida Get(int Id)
         {
             return context

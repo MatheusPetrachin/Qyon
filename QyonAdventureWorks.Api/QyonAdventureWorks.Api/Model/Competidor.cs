@@ -24,4 +24,14 @@ namespace QyonAdventureWorks.Api.Model
         [Required(ErrorMessage = "Altura não informada.")]
         public decimal Altura { get; set; }
     }
+
+    public class CompetidorTempoMedio
+    {
+        [NotMapped]
+        public int Id { get; set; }
+        [NotMapped]
+        public string Nome { get; set; }
+        [NotMapped]
+        public decimal TempoMedio { get; set; }
+    }
 }
