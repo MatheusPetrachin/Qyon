@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "f6cff11d-5205-494d-a52f-99fb37a89d8b",
+		"name": "Qyon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Competidores",
+			"item": [
+				{
+					"name": "Competidor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44358/api/Competidores/0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"Competidores",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Competidores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44358/api/Competidores/FilterName/0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"Competidores",
+								"FilterName",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Nome\": \"Matheus Petrachin\",\r\n    \"Sexo\": \"M\",\r\n    \"TemperaturaMediCorpo\": 36.5,\r\n    \"Peso\": 100,\r\n    \"Altura\": 1.9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/Competidores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"Competidores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1,\r\n    \"Nome\": \"Matheus Roque Petrachin\",\r\n    \"Sexo\": \"M\",\r\n    \"TemperaturaMediCorpo\": 36.5,\r\n    \"Peso\": 100,\r\n    \"Altura\": 1.9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/Competidores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"Competidores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1,\r\n    \"Nome\": \"Matheus Roque Petrachin\",\r\n    \"Sexo\": \"M\",\r\n    \"TemperaturaMediCorpo\": 36.5,\r\n    \"Peso\": 100,\r\n    \"Altura\": 1.9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/Competidores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"Competidores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PistaCorridas",
+			"item": [
+				{
+					"name": "PistaCorrida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44358/api/PistaCorrida/0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"PistaCorrida",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PistaCorridas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44358/api/PistaCorrida/FilterDescription/0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"PistaCorrida",
+								"FilterDescription",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Descrição\" : \"Pista - Monza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/PistaCorrida",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"PistaCorrida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1,\r\n    \"Descrição\" : \"Pista - Monza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/PistaCorrida",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"PistaCorrida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1,\r\n    \"Descrição\" : \"Pista - Monza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/PistaCorrida",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"PistaCorrida"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HistoricoCorrida",
+			"item": [
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CompetidorId\": 2,\r\n    \"PistaCorridaId\": 4,\r\n    \"DataCorrida\": \"2012-04-23T18:25:43.511Z\",\r\n    \"TempoGasto\": 16\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/HistoricoCorrida",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"HistoricoCorrida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": 1,\r\n    \"CompetidorId\": 2,\r\n    \"PistaCorridaId\": 4,\r\n    \"DataCorrida\": \"2012-04-23T18:25:43.511Z\",\r\n    \"TempoGasto\": 25\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44358/api/HistoricoCorrida",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"HistoricoCorrida"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listas",
+			"item": [
+				{
+					"name": "PistasUtilizadas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44358/api/PistaCorrida",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"PistaCorrida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TempoMedioCompetidores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44358/api/Competidores/TempoMedioCompetidores",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44358",
+							"path": [
+								"api",
+								"Competidores",
+								"TempoMedioCompetidores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CompetidoresSemCorrida",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

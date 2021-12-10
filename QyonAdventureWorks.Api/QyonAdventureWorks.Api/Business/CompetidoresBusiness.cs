@@ -51,24 +51,37 @@ namespace QyonAdventureWorks.Api.Business
 
             var competidores = context.Competidores.ToList();
 
+            var competidoresHist = historico.Select(p => p.CompetidorId).ToList();
+
             foreach (var comp in competidores)
             {
-                var listTempo = historico.Where(p => p.CompetidorId == comp.Id).Select(p => p.TempoGasto).ToList();
-                var media = 0M;
-                foreach (var item in listTempo)
+                if (competidoresHist.Contains(comp.Id))
                 {
-                    media += item;
+                    var listTempo = historico.Where(p => p.CompetidorId == comp.Id).Select(p => p.TempoGasto).ToList();
+                    var media = 0M;
+                    foreach (var item in listTempo)
+                    {
+                        media += item;
+                    }
+                    if (listTempo.Count() == 0)
+                    {
+                        media = 0;
+                    }
+                    else
+                    {
+                        media = media / listTempo.Count();
+                    }
+
+                    var competidorTempoMedio = new CompetidorTempoMedio()
+                    {
+                        Id = comp.Id,
+                        Nome = comp.Nome,
+                        TempoMedio = media
+                    };
+
+                    competidorTempoMedioList.Add(competidorTempoMedio);
                 }
-                media = media / listTempo.Count();
-
-                var competidorTempoMedio = new CompetidorTempoMedio()
-                {
-                    Id = comp.Id,
-                    Nome = comp.Nome,
-                    TempoMedio = media
-                };
-
-                competidorTempoMedioList.Add(competidorTempoMedio);
+                
             }
 
             return competidorTempoMedioList;
