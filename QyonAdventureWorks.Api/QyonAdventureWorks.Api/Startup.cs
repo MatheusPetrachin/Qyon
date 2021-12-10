@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using QyonAdventureWorks.Api.Business;
 using QyonAdventureWorks.Api.Model;
 
 namespace QyonAdventureWorks.Api
@@ -32,6 +33,10 @@ namespace QyonAdventureWorks.Api
             services.AddMvc();
 
             services.AddDbContext<Context>(options => options.UseMySql(connString).EnableSensitiveDataLogging());
+
+            services.AddScoped<CompetidoresBusiness>();
+            services.AddScoped<HistoricoCorridaBusiness>();
+            services.AddScoped<PistaCorridaBusiness>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

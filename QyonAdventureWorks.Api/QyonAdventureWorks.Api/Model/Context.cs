@@ -1,8 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace QyonAdventureWorks.Api.Model
 {
@@ -11,5 +7,9 @@ namespace QyonAdventureWorks.Api.Model
         public Context(DbContextOptions<Context> options)
         : base(options)
         { }
+
+        public virtual DbSet<PistaCorrida> PistaCorridas { get; set; }
+        public virtual DbSet<HistoricoCorrida> HistoricoCorridas { get; set; }
+        public virtual DbSet<Competidor> Competidores { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QyonAdventureWorks.Api.Model
 {
-    public class HistoricoCorridas
+    public class HistoricoCorrida
     {
         [Key]
         public int Id { get; set; }

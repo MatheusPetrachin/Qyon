@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QyonAdventureWorks.Api.Model
 {
-    public class Competidores
+    public class Competidor
     {
         [Key]
         public int Id { get; set; }
